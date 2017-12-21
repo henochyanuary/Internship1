@@ -9,7 +9,6 @@ public class GameController : MonoBehaviour {
     private DataController dataController;
     private RoundData currentRoundData;
     private QuestionData[] questionPool;
-    
 
     private bool isRoundActive;
     private float timeRemaining;
@@ -22,6 +21,7 @@ public class GameController : MonoBehaviour {
     public Text questionText;
     public Text scoreText;
     public Text timeText;
+    public Text highScoreText;
     public Transform parentsPanel;
     public GameObject questionPanel;
     public GameObject endPanel;
@@ -93,6 +93,9 @@ public class GameController : MonoBehaviour {
     public void EndRound()
     {
         isRoundActive = false;
+        dataController.SubmitNewPlayerScore(playerScore);
+        highScoreText.text = dataController.GetHighestPlayerScore().ToString();
+
         questionPanel.SetActive(false);
         endPanel.SetActive(true);
     }
