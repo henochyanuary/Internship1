@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
     public Text questionText;
     public Text scoreText;
     public Text timeText;
+    public Text themeText;
     public Text highScoreText;
     public Transform parentsPanel;
     public GameObject questionPanel;
@@ -37,6 +38,7 @@ public class GameController : MonoBehaviour {
 
         playerScore = 0;
         questionIndex = 0;
+        themeText.text = currentRoundData.name;
 
         ShowQuestion();
         isRoundActive = true;
