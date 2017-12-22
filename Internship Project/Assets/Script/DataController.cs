@@ -7,6 +7,7 @@ using System.IO;
 public class DataController : MonoBehaviour {
 
     public RoundData[] allRoundData;
+    public int numberLevel;
     private PlayerProgress playerProgress;
 
     private string gameDataFileName = "data.json";
@@ -20,7 +21,8 @@ public class DataController : MonoBehaviour {
 
     public RoundData GetCurrentRoundData()
     {
-        return allRoundData[0];
+        // put code to change round here
+        return allRoundData[numberLevel];
     }
 
     public void SubmitNewPlayerScore(int newScore)

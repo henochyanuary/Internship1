@@ -5,4 +5,5 @@ using UnityEngine;
 public class PlayerProgress  {
 
     public int highestScore;
+    public int currentRoundValue;
 }

@@ -152,28 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2658481928f703d4c9f1d46e4922cd4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allRoundData:
-  - name: RoundZero
-    timeLimit: 30
-    pointsAddedForCorrectAnswer: 10
-    questions:
-    - questionText: Are lion carnivore?
-      answers:
-      - answerText: Yes
-        isCorrect: 1
-      - answerText: No
-        isCorrect: 0
-    - questionText: Where do mice lived?
-      answers:
-      - answerText: Moon
-        isCorrect: 0
-      - answerText: Land
-        isCorrect: 1
-      - answerText: Sea
-        isCorrect: 0
-    - questionText: Where do frog eats
-      answers:
-      - answerText: Flies
-        isCorrect: 1
-      - answerText: Pizza
-        isCorrect: 0
+  allRoundData: []

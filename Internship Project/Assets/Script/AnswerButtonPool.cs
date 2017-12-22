@@ -6,6 +6,7 @@ public class AnswerButtonPool : MonoBehaviour {
 
     // the prefab that this object pool returns instances of
     public GameObject prefab;
+    public Transform answerPanel;
     // collection of currently inactive instances of the prefab
     private Stack<GameObject> inactiveInstances = new Stack<GameObject>();
 
@@ -23,7 +24,10 @@ public class AnswerButtonPool : MonoBehaviour {
         // otherwise, create a new instance
         else
         {
-            spawnedGameObject = (GameObject)GameObject.Instantiate(prefab);
+            spawnedGameObject = (GameObject)GameObject.Instantiate(prefab,answerPanel, false);
+
+            spawnedGameObject.transform.SetParent(transform.parent, false);
+            spawnedGameObject.transform.position = transform.position;
 
             // add the PooledObject component to the prefab so we know it came from this pool
             PooledObject pooledObject = spawnedGameObject.AddComponent<PooledObject>();
