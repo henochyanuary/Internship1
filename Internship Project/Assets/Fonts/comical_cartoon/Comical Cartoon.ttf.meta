@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9ccc1be287dd080458e767a083a7d6ea
+timeCreated: 1514022774
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 20
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Comical Cartoon
+  fontNames:
+  - Comical Cartoon
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6de3a26a8432f9b459c542fab3da0c54
+timeCreated: 1514022929
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Tun Up De Ting
+  fontNames:
+  - Tun Up De Ting
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

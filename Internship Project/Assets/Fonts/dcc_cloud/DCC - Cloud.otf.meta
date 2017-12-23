@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d73988d6e1ac1664dbf831e272b4e5b0
+timeCreated: 1514026028
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DCC - Cloud
+  fontNames:
+  - DCC - Cloud
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
