@@ -6,9 +6,11 @@ using System.IO;
 
 public class DataController : MonoBehaviour {
 
-    public RoundData[] allRoundData;
     public int numberLevel;
+    public List<string> nameButton = new List<string>();
+
     private PlayerProgress playerProgress;
+    private RoundData[] allRoundData;
 
     private string gameDataFileName = "data.json";
 	// Use this for initialization
@@ -63,6 +65,7 @@ public class DataController : MonoBehaviour {
             GameData loadedData = JsonUtility.FromJson<GameData>(dataAsJSON);
 
             allRoundData = loadedData.allRoundData;
+            
         }
         else
         {

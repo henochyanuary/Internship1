@@ -8,13 +8,15 @@ public class LevelButtonManager : MonoBehaviour {
 
     public AnswerButtonPool buttonPool;
     public Transform parentPanel;
+    
 
 	// Use this for initialization
 	void Start () {
 
         ShowLevel();
-		
-	}
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,10 +33,12 @@ public class LevelButtonManager : MonoBehaviour {
 
             LevelButton levelButton = levelButtonGO.GetComponent<LevelButton>();
             int newI = i + 1;
-            levelButton.levelText.text = "Level " + newI.ToString();
+
+            levelButton.levelText.text = "Level " + (i + 1);
 
             levelButton.levelData = i;
 
         }
     }
+
 }
