@@ -5,16 +5,18 @@ using UnityEngine;
 public class LevelButtonManager : MonoBehaviour {
 
     private List<GameObject> levelButtonList = new List<GameObject>();
+    private DataController dataController;
 
     public AnswerButtonPool buttonPool;
     public Transform parentPanel;
-    
 
 	// Use this for initialization
 	void Start () {
 
+        dataController = FindObjectOfType<DataController>();
+        
         ShowLevel();
-
+        
 
     }
 	
@@ -25,14 +27,13 @@ public class LevelButtonManager : MonoBehaviour {
 
     private void ShowLevel()
     {
-        for (int i = 0; i<10; i++)
+        for (int i = 0; i<dataController.GetUnlockedLevel(); i++)
         {
             GameObject levelButtonGO = buttonPool.GetObject();
             levelButtonGO.transform.SetParent(parentPanel);
             levelButtonList.Add(levelButtonGO);
 
             LevelButton levelButton = levelButtonGO.GetComponent<LevelButton>();
-            int newI = i + 1;
 
             levelButton.levelText.text = "Level " + (i + 1);
 

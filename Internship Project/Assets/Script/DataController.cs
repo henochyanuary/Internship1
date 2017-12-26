@@ -7,6 +7,7 @@ using System.IO;
 public class DataController : MonoBehaviour {
 
     public int numberLevel;
+    public int unlockedLevel;
     public List<string> nameButton = new List<string>();
 
     private PlayerProgress playerProgress;
@@ -17,8 +18,16 @@ public class DataController : MonoBehaviour {
 	void Start () {
         DontDestroyOnLoad(gameObject); // make this object stays in the game at all time, unless deleted 
         LoadPlayerProgress();
+        LoadUnlockedLevel();
         LoadGameData();
         SceneManager.LoadScene("Main");
+        unlockedLevel = GetUnlockedLevel();
+
+        // deleting existing player prefs on build
+        if(!Application.isEditor)
+        {
+            PlayerPrefs.DeleteAll();
+        }
 	}
 
     public RoundData GetCurrentRoundData()
@@ -35,14 +44,24 @@ public class DataController : MonoBehaviour {
             SavePlayerProgress();
         }
     }
+    public void SubmitUnlockedLevel(int levelUnlocked)
+    {
+        playerProgress.unlockedLevel = levelUnlocked;
+        SaveUnlockedLevel();
+    }
 
     public int GetHighestPlayerScore()
     {
         return playerProgress.highestScore;
     }
+    
+    public int GetUnlockedLevel()
+    {
+        return playerProgress.unlockedLevel;
+    }
 	
 	private void LoadPlayerProgress()
-    {
+    { 
         playerProgress = new PlayerProgress();
 
         if (PlayerPrefs.HasKey("highestScore"))
@@ -54,6 +73,21 @@ public class DataController : MonoBehaviour {
     private void SavePlayerProgress()
     {
         PlayerPrefs.SetInt("highestScore", playerProgress.highestScore);
+    }
+
+    private void LoadUnlockedLevel()
+    {
+        playerProgress = new PlayerProgress();
+
+        if (PlayerPrefs.HasKey("unlockedLevel"))
+        {
+            playerProgress.unlockedLevel = PlayerPrefs.GetInt("unlockedLevel");
+        }
+    }
+
+    private void SaveUnlockedLevel()
+    {
+        PlayerPrefs.SetInt("unlockedLevel", playerProgress.unlockedLevel);
     }
 
     private void LoadGameData()

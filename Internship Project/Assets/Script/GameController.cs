@@ -14,8 +14,9 @@ public class GameController : MonoBehaviour {
     private float timeRemaining;
     private int questionIndex;
     private int playerScore;
-
+    
     private List<GameObject> answerButtonGO = new List<GameObject>();
+    private AudioManager audioManager;
 
     public AnswerButtonPool answerButtonPool;
     public Text questionText;
@@ -42,6 +43,14 @@ public class GameController : MonoBehaviour {
 
         ShowQuestion();
         isRoundActive = true;
+
+        //audio calling;
+        {
+            audioManager = FindObjectOfType<AudioManager>();
+            audioManager.generalAudioSource.clip = audioManager.audioClips[1];
+            audioManager.generalAudioSource.Play();
+        }
+        
         
 	}
 
@@ -78,6 +87,11 @@ public class GameController : MonoBehaviour {
         {
             playerScore += currentRoundData.pointsAddedForCorrectAnswer;
             scoreText.text = "Score: " + playerScore.ToString();
+            audioManager.generalAudioSource.PlayOneShot(audioManager.sfxClips[1],2.0f);
+        }
+        else
+        {
+            audioManager.generalAudioSource.PlayOneShot(audioManager.sfxClips[2], 2.0f);
         }
 
         // changed this lower part for future changes regarding the system, if slight changes are needed
@@ -97,6 +111,14 @@ public class GameController : MonoBehaviour {
         isRoundActive = false;
         dataController.SubmitNewPlayerScore(playerScore);
         highScoreText.text = dataController.GetHighestPlayerScore().ToString();
+
+        //setting in the unlocked level;
+        if (playerScore == 100 && dataController.numberLevel == dataController.unlockedLevel -1)
+        {
+            dataController.unlockedLevel += 1;
+            dataController.SubmitUnlockedLevel(dataController.unlockedLevel);
+        }
+        
 
         questionPanel.SetActive(false);
         endPanel.SetActive(true);
